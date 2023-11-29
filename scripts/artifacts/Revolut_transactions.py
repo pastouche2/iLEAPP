@@ -15,7 +15,7 @@ __artifacts_v2__ = {
         "requirements": "none",
         "category": "Revolut online banking",
         "notes": "",
-        "paths": ('*/var/mobile/Containers/Shared/AppGroup/1C1C9AC4-DC6D-43B4-9AC6-CF13F221912A/RevolutRetailCoreDroppable.sqlite*',),
+        "paths": ('*/filesystem1/private/var/mobile/Containers/Shared/AppGroup/1C1C9AC4-DC6D-43B4-9AC6-CF13F221912A/RevolutRetailCoreDroppableDatabase/RevolutRetailCoreDroppable.sqlite*',),
         "function": "get_revolut"
     }
 }
