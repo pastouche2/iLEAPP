@@ -62,7 +62,6 @@ def sort(cursor):
     ZTRANSACTION.ZAMOUNT,
     ZTRANSACTION.ZCURRENCY,
     ZTRANSACTION.Messages,
-    ZTRANSACTION.ZINFO,
     ZTRANSACTION.ZSTATE,
     ZTRANSACTION.ZCATEGORY,
     ZTRANSACTION.ZTYPE,
@@ -73,7 +72,7 @@ def copy_database(original_path):
     shutil.copy(original_path, temp_db_path)
     return temp_db_path
 
-def get_revolut(files_found, report_folder, seeker, wrap_text):
+def get_revolut(files_found, report_folder, seeker, wrap_text, offset):
     for file_found in files_found:
         file_found = str(file_found)
         if file_found.endswith('/RevolutRetailCoreDroppable.sqlite'):
