@@ -5,7 +5,7 @@ import tempfile
 from scripts.artifact_report import ArtifactHtmlReport
 from scripts.ilapfuncs import logfunc, tsv, open_sqlite_db_readonly
 
-__artifacts_v1 = {
+__artifacts_v2__ = {
     "Transactions": {
         "name": "Revolut transactions artifacts",
         "description": "Extraction of all the data available from transactions and the account of a user of Revolut.",
