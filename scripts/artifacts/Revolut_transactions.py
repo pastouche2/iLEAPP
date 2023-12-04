@@ -96,8 +96,7 @@ def get_revolut(files_found, report_folder, seeker, wrap_text, offset):
             report.add_script()
             data_headers = (
                 'Index', 'Transaction title', 'Revolut recipient code','Revolut recipient username','Revolut sender code',
-                'Revolut sender username', 'Creation date','Sent confirmation date', 'Receiver confirmation date ',
-                'Test date','Amount', 'Currency', 'Messages', 'Status', 'Transaction category', 'Type of payment',
+                'Revolut sender username', 'Creation date','Amount', 'Currency', 'Messages', 'Status', 'Transaction category', 'Type of payment',
                 'Payment address'
             )
             report.write_artifact_data_table(data_headers, data_list, file_found, html_escape=False)
