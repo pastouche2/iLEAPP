@@ -823,6 +823,7 @@ icon_mappings = \
         'SAMSUNG WIPE RECOVERY HISTORY LOG': 'trash-2',
         'default': 'loader',
     },
+    'Revolut online banking': 'credit-card',
 }
 
 # function that can be run against the list to sort and output to console
