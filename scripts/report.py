@@ -823,7 +823,9 @@ icon_mappings = \
         'SAMSUNG WIPE RECOVERY HISTORY LOG': 'trash-2',
         'default': 'loader',
     },
-    'Revolut_transactions': 'credit-card',
+    'REVOLUT ONLINE BANKING': {
+        'REVOLUT TRANSACTION ARTIFACTS': 'credit-card'
+    },
 }
 
 # function that can be run against the list to sort and output to console
