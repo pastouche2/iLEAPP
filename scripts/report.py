@@ -823,8 +823,8 @@ icon_mappings = \
         'SAMSUNG WIPE RECOVERY HISTORY LOG': 'trash-2',
         'default': 'loader',
     },
-    'REVOLUT TRANSACTION ARTIFACTS': {
-        'REVOLUT ONLINE BANKING': 'credit-card'
+    'REVOLUT ONLINE BANKING': {
+        'REVOLUT TRANSACTIONS ARTIFACTS': 'credit-card'
     },
 }
 
