@@ -5,6 +5,7 @@ import tempfile
 from scripts.artifact_report import ArtifactHtmlReport
 from scripts.ilapfuncs import logfunc, tsv, open_sqlite_db_readonly
 
+# Structure de l'artifact
 __artifacts_v2__ = {
     "Transactions": {
         "name": "Revolut transactions artifacts",
@@ -19,13 +20,14 @@ __artifacts_v2__ = {
         "function": "get_revolut"
     }
 }
-
+# Le montant est stocké en centimes dans la base de données, il faut donc le convertir en euros (à l'unité)
 def update_amount_column(cursor):
     cursor.execute('''
         UPDATE ZTRANSACTION 
         SET ZAMOUNT = SUBSTRING(ZAMOUNT, 1, LENGTH(ZAMOUNT) - 2) || '.' || SUBSTRING(ZAMOUNT, -2)
     ''')
 
+# Ajout de la colonne Messages
 def add_messages_column(cursor):
     add_column_query = """
     ALTER TABLE ZTRANSACTION
@@ -33,6 +35,7 @@ def add_messages_column(cursor):
     """
     cursor.execute(add_column_query)
 
+# Mise à jour de la colonne Messages
 def update_messages_column(cursor):
     # Définition de la requête SQL
     update_query = """
@@ -46,6 +49,8 @@ def update_messages_column(cursor):
     )
     """
     cursor.execute(update_query)
+
+# Tri des colonnes et requête SQL finale pour l'extraction des données
 def sort(cursor):
     cursor.execute(f'''
     SELECT
@@ -63,12 +68,16 @@ def sort(cursor):
     ZTRANSACTION.ZCATEGORY,
     ZTRANSACTION.ZTYPE,
     ZMERCHANT.ZADDRESS FROM ZTRANSACTION LEFT JOIN ZMERCHANT ON ZTRANSACTION.Z_PK = ZMERCHANT.ZTRANSACTION;''')
+
+# Copie de la base de données car elle est en lecture seule et il faut pouvoir la modifier
 def copy_database(original_path):
     temp_dir = tempfile.mkdtemp()
     temp_db_path = f"{temp_dir}/RevolutCopy.sqlite"
     shutil.copy(original_path, temp_db_path)
     return temp_db_path
 
+# Extraction des données en allant chercher grâce au chemin la base de données et appel des fonctions précédentes
+# pour le formatage des données et appel à write_artifact_data_table pour l'écriture dans le rapport
 def get_revolut(files_found, report_folder, seeker, wrap_text, offset):
     for file_found in files_found:
         file_found = str(file_found)
