@@ -824,7 +824,7 @@ icon_mappings = \
         'default': 'loader',
     },
     'REVOLUT ONLINE BANKING': {
-        'REVOLUT TRANSACTIONS ARTIFACTS': 'credit-card'
+        'REVOLUT_TRANSACTIONS': 'credit-card'
     },
 }
 

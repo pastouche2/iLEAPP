@@ -8,7 +8,7 @@ from scripts.ilapfuncs import logfunc, tsv, open_sqlite_db_readonly
 # Structure de l'artifact
 __artifacts_v2__ = {
     "Transactions": {
-        "name": "Revolut transactions artifacts",
+        "name": "Revolut online banking Transactions",
         "description": "Extraction of all the data available from transactions and the account of a user of Revolut.",
         "author": "@GroupB",
         "version": "0.1",
